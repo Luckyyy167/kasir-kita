@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    --color-coffee-950: #22140A;
+    --color-coffee-900: #321D0F;
+    --color-coffee-800: #452A17;
+    --color-coffee-700: #5C3820;
+    --color-coffee-600: #7A4C2E;
+    --color-coffee-500: #9C643F;
+    --color-coffee-400: #BE8358;
+    --color-coffee-300: #DCAB83;
+    --color-coffee-200: #EBD0B9;
+    --color-coffee-100: #F5E8DC;
+    --color-coffee-50:  #FAF4EE;
+
+    --color-caramel-700: #A25C1C;
+    --color-caramel-600: #BD6E23;
+    --color-caramel-500: #D9822B;
+    --color-caramel-400: #E59A4C;
+    --color-caramel-300: #F0B876;
+    --color-caramel-200: #F8D7AB;
+    --color-caramel-100: #FDF1E2;
+    --color-caramel-50:  #FFF9F2;
+
+    --color-cream-50:  #FCFAF6;
+    --color-cream-100: #F7F3EB;
+    --color-cream-200: #EFE8DC;
+    --color-cream-300: #E2D7C5;
+
+    --color-sage-700: #35563D;
+    --color-sage-600: #426B4C;
+    --color-sage-500: #50805B;
+    --color-sage-400: #6EA07B;
+    --color-sage-100: #E8F2EA;
+    --color-sage-50:  #F4F8F4;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #D9CEC1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #BEB09F;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Print Styles for Thermal Struk POS (58mm / 80mm) */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #thermal-receipt, #thermal-receipt * {
+        visibility: visible;
+    }
+    #thermal-receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 8px;
+        color: #000 !important;
+        background: #FFF !important;
+        font-family: 'Courier New', Courier, monospace !important;
+        font-size: 12px !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
